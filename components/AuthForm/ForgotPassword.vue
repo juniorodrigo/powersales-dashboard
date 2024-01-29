@@ -4,13 +4,13 @@
 			<n-input
 				v-model:value="model.email"
 				@keydown.enter="forgotPassword"
-				placeholder="Example@email.com"
+				placeholder="micorreo@email.com"
 				size="large"
 			/>
 		</n-form-item>
 		<div class="flex flex-col items-end gap-6">
 			<div class="w-full">
-				<n-button type="primary" @click="forgotPassword" class="!w-full" size="large">Send Reset Link</n-button>
+				<n-button type="primary" @click="forgotPassword" class="!w-full" size="large">Enviar enlace</n-button>
 			</div>
 		</div>
 	</n-form>
@@ -45,7 +45,7 @@ const rules: FormRules = {
 		{
 			required: true,
 			trigger: ["blur"],
-			message: "Email is required"
+			message: "Ingresa tu email"
 		}
 	]
 }

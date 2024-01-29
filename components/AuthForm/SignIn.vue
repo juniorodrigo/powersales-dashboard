@@ -4,7 +4,7 @@
 			<n-input
 				v-model:value="model.email"
 				@keydown.enter="signIn"
-				placeholder="Example@email.com"
+				placeholder="micorreo@email.com"
 				size="large"
 				autocomplete="on"
 			/>
@@ -14,7 +14,7 @@
 				v-model:value="model.password"
 				type="password"
 				show-password-on="click"
-				placeholder="At least 8 characters"
+				placeholder="Mínimo 8 caracteres"
 				@keydown.enter="signIn"
 				autocomplete="on"
 				size="large"
@@ -22,11 +22,11 @@
 		</n-form-item>
 		<div class="flex flex-col items-end gap-6">
 			<div class="flex justify-between w-full">
-				<n-checkbox size="large">Remember me</n-checkbox>
-				<n-button text type="primary" @click="emit('forgot-password')">Forgot Password?</n-button>
+				<n-checkbox size="large">Recordarme</n-checkbox>
+				<n-button text type="primary" @click="emit('forgot-password')">¿Olvidaste tu contraseña?</n-button>
 			</div>
 			<div class="w-full">
-				<n-button type="primary" @click="signIn" class="!w-full" size="large">Sign in</n-button>
+				<n-button type="primary" @click="signIn" class="!w-full" size="large">Iniciar sesión</n-button>
 			</div>
 		</div>
 	</n-form>

@@ -25,6 +25,7 @@ const props = withDefaults(
 )
 const { collapsed } = toRefs(props)
 
+// Aquí se pueden agregar opciones al menú inferior del toolbar lateral
 const menuOptions = ref([
 	{
 		label: () =>

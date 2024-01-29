@@ -2,9 +2,7 @@
 	<div class="form-wrap">
 		<Logo mini :dark="isDark" class="mb-4" />
 		<div class="title mb-4">{{ title }}</div>
-		<div class="text mb-12">
-			Today is a new day. It's your day. You shape it. Sign in to start managing your projects.
-		</div>
+		<div class="text mb-12">{{ description }}</div>
 
 		<div class="form">
 			<transition name="form-fade" mode="out-in" appear>
@@ -21,27 +19,27 @@
 				<span class="b-icon">
 					<img src="@/assets/images/google-icon.svg?url" />
 				</span>
-				Sign in with Google
+				Iniciar con Google
 			</n-button>
 			<n-button strong secondary>
 				<span class="b-icon" size="large">
 					<img src="@/assets/images/facebook-icon.svg?url" />
 				</span>
-				Sign in with Facebook
+				Iniciar con Facebook
 			</n-button>
 		</div>
 
 		<div class="sign-text text-center">
 			<div class="sign-text" v-if="typeRef === 'signin'">
-				Don't you have an account?
-				<n-button text @click="gotoSignUp()" type="primary" size="large">Sign up</n-button>
+				¿No tienes una cuenta?
+				<n-button text @click="gotoSignUp()" type="primary" size="large">Regístrate</n-button>
 			</div>
 			<div class="sign-text" v-if="typeRef === 'forgotpassword'">
-				<n-button text @click="gotoSignIn()" type="primary" size="large">Back to Sign in</n-button>
+				<n-button text @click="gotoSignIn()" type="primary" size="large">Volver al inicio</n-button>
 			</div>
 			<div class="sign-text" v-if="typeRef === 'signup'">
 				Do you have an account?
-				<n-button text @click="gotoSignIn()" type="primary" size="large">Sign in</n-button>
+				<n-button text @click="gotoSignIn()" type="primary" size="large">Inicia sesión</n-button>
 			</div>
 		</div>
 	</div>
@@ -66,7 +64,11 @@ const typeRef = ref<FormType>("signin")
 
 const isDark = computed<boolean>(() => useThemeStore().isThemeDark)
 const title = computed<string>(() =>
-	typeRef.value === "signin" ? "Welcome Back" : typeRef.value === "signup" ? "Hello" : "Forgot Password"
+	typeRef.value === "signin" ? "Inicia sesión" : typeRef.value === "signup" ? "Regístrate" : "Recuperar contraseña"
+)
+
+const description = computed<string>(() =>
+	typeRef.value === "signin" ? "Ingresa tus datos para iniciar sesión." : typeRef.value === "signup" ? "Ingresa tus datos para registrarte." : "Ingresa tu correo registrado para enviarte un enlace de recuperación."
 )
 
 function gotoSignIn() {
